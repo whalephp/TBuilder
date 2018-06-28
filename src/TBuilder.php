@@ -7,8 +7,9 @@ class TBuilder
 		
 	}
 	
-	public static test(){
-		echo 'test';
+
+	public static function test(){
+		echo 'test tbuilder';
 	}
 	
 }
