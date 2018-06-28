@@ -1,0 +1,19 @@
+{
+    "name": "whalephp/tbuilder",
+    "description": "PHP template builder",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/whalephp/TBuilder",
+    "type": "library",
+    "keywords": ["TBuilder","whalephp"],
+    "authors": [
+        {
+            "name": "qw_xingzhe",
+            "email": "1243463730@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "whalephp\\": "src"
+        }
+    }
+}
