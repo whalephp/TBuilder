@@ -1,0 +1,25 @@
+{/*简版居中型表单*/}
+{foreach name="_view_vars['tab_group']" item="wg" key="tab_num"}
+<div class="admin-form">
+	{volist name="wg.group_wigets" id="w"}
+		{eq name="w.hide_label" value="0"}
+			<div class="section row mb10 widget-box widget-type-{$w.type} {$w.box_class}">
+				<label for="{$w.id_str}" class="field-label col-sm-{$_view_vars['page_theme']['form_label_col']}">
+				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/item/form_label_title.html" /}
+				</label>
+				<div class="col-sm-{$_view_vars['page_theme']['form_value_col']}">
+					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+				</div>
+			</div>
+			{notempty name="w.desc"}
+			<div class="section row mb10 widget-box widget-type-{$w.type} {$w.box_class}">
+				<label for="{$w.id_str}" class="field-label col-sm-{$_view_vars['page_theme']['form_label_col']}"></label>
+				<div class="col-sm-{$_view_vars['page_theme']['form_value_col']}" style="color: #888;margin-top: -10px;">{$w.desc}</div>
+			</div>
+			{/notempty}
+		{else/}
+			{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+		{/eq}
+  	{/volist}
+</div>
+{/foreach}

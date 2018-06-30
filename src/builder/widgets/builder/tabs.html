@@ -1,0 +1,69 @@
+{gt name="tabConfig['tab_num']" value="0"}
+
+				<div class="tab-block {$tabConfig.position_config.tab_box_position_class}">
+				
+                   	{eq name="tabConfig.is_single" value="1"}
+                  		{volist name="tabWidgets" id="tab"}
+                  			
+                  			<div class="panel-body br-n {$tab.scroller_class} pn" style="{$tab.tab_height}">
+					    	<!-- A # start -->
+					    	{notempty name="tab.widget"}
+					    		{assign name="w" value="$tab['widget']"}
+					    		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom_widget_type_entry.html"/}
+					    	{else/}
+					    		{$tab.content}
+					    	{/notempty}
+				        	<!-- A # end -->
+					    	</div>
+					    	
+					    {/volist}
+                   	{else/}
+                   		<!-- tab切换区 -->
+                   		{neq name="tabConfig.position" value="bottom-justified"}
+						    <ul class="{$tabConfig['position_config']['ul_class']}">
+						    {volist name="tabWidgets" id="tab"}
+						    {neq name="$tab.title" value="""}
+						    <li class="{$tab.active}">
+					            <a href="#{$tab.tab_id}" {$tab.tab_attr_str} data-toggle="tab" aria-expanded="true">{$tab.title}</a>
+					        </li>
+					        {/neq}
+						    {/volist}
+						    </ul>
+					    {/neq}
+					    
+					    <!-- tab内容区 -->
+					    <div class="tab-content pn">
+					    	
+					    	{volist name="tabWidgets" id="tab"}
+						    <div id="{$tab.tab_id}" class="tab-pane {$tab.active}">
+						    
+					    		<div class="panel-body br-n {$tab.scroller_class} pn" style="{$tab.tab_height}">
+						    	<!-- A # start -->
+						    	{notempty name="tab.widget"}
+						    		{assign name="w" value="$tab['widget']"}
+						    		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom_widget_type_entry.html"/}
+						    	{else/}
+						    		{$tab.content}
+						    	{/notempty}
+					        	<!-- A # end -->
+						    	</div>
+						    
+					        </div>
+						    {/volist}
+						    
+					    </div>
+					    {eq name="tabConfig.position" value="bottom-justified"}
+						    <ul class="{$tabConfig['position_config']['ul_class']}">
+						    {volist name="tabWidgets" id="tab"}
+						    {neq name="$tab.title" value="""}
+						    <li class="{$tab.active}">
+					            <a href="#{$tab.tab_id}" {$tab.tab_attr_str} data-toggle="tab" aria-expanded="true">{$tab.title}</a>
+					        </li>
+					        {/neq}
+						    {/volist}
+						    </ul>
+					    {/eq}
+                   	{/eq}
+                   	
+				</div>
+{/gt}

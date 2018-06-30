@@ -1,0 +1,109 @@
+{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/head.html" }
+
+
+<!-- ./vendor/whalephp/phpexcel-helper/src/builder/public -->
+
+
+<body class="dashboard-page {$_view_vars['page_theme']['sidebar_position']} {$_view_vars['page_theme']['body_class']} modal-show-{$modal_show}" {$_view_vars['page_theme']['body_attr']}>
+	{/*
+    {include file="../vendor/whalephp/phpexcel-helper/src/builder/public/skin-toolbox.html" }
+	*/}
+    <!-- Start: Main -->
+    <div id="main">
+		
+		
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/header.html"}
+		
+		
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/public/sidebar_left.html"}
+
+        <!-- Start: Content-Wrapper -->
+        <section id="content_wrapper" class=" ">
+
+			{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/topbar.html"}	
+
+            <!-- Begin: Content -->
+            <section id="content" class="{$_view_vars['page_theme']['content_class']}">
+            	
+            	
+            	{eq name="_view_vars['is_show_tray']" value="1"}
+	            	<!-- 左侧边栏定位区 -->
+	            	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/tray_menu.html"}         	
+            		
+            		<div class="tray tray-center">
+	            		<!-- 主体内容区 -->
+	            		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/custom_widget.html"}         
+	            		{block name="content"}{/block}
+            		</div>
+            		
+            		<!-- 右侧边栏定位区 -->
+	            	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/tray_right.html"}         
+            		
+            	{else/}
+            		<!-- 主体内容区 -->
+            		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/custom_widget.html"}
+            		{block name="content"}{/block}
+            	{/eq}
+            	
+            	
+            </section>
+			
+			{eq name="_view_vars['is_show_footer']" value="1"}
+				{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/footer.html"}
+			{/eq}
+			
+        </section>
+        <!-- End: Content-Wrapper -->
+		
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/sidebar_right.html"}
+    </div>
+    <!-- End: Main -->
+
+
+	<!-- page在modal中zhanshi -->
+	<div id="href-page-modal" class="popup-lg bg-none mfp-with-anim mfp-hide hide">
+	    <div class="panel">
+	        <div class="panel-heading">
+	            <span class="panel-icon">
+	                <i class="glyphicon glyphicon-list-alt"></i>
+	            </span>
+	            <span class="panel-title">...</span>
+	        </div>
+	        <div class="panel-body">
+	         	
+	        </div>
+	        <!--  
+	        <div class="panel-footer text-center">
+	            <button class="btn btn_save_t" type="button">确定</button>
+	        </div>
+	        -->
+	    </div>
+	</div>
+	
+	
+
+	{if condition="isset($_view_vars['widgets_in_use'])"}
+		{/*自定义显示列*/}
+		{if condition="in_array('diy_colums',$_view_vars['widgets_in_use'])"}
+			{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/diy_columns.html"}
+		{/if}
+		
+		{/* cropper 图片裁剪上传 */}
+		{if condition="in_array('cropper',$_view_vars['widgets_in_use'])"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/avatar-modal.html"}
+		{/if}
+	{/if}
+	
+</body>
+</html>
+{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/script.html"}
+{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/widget_script.html"}
+<script src="__STATIC__/common/js/common.js"></script>
+
+
+{block name="script"}{/block}
+
+
+
+
+

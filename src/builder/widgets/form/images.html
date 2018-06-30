@@ -1,0 +1,16 @@
+<div class="upload_img_btn_box" {$w.item_attr_str} file_type='image' file_ext="{$w.ext}" id_name="{$w.id_str}" id="{$w.id_str}_box">
+	<div class="image_box" enabled_edit="{$w.enabled_edit}">
+		{:get_pic_list_html( $w['value'] )}
+		
+		{eq name="w.enabled_edit" value="1"}
+		<img class="pic_upload_btn upload_img_btn" limit_num="{$w.limit_num}" alt="" id_name="{$w.id_str}" src="\public\static\admin\images/upload_img.png">
+		{/eq}
+		
+	</div>
+	
+	{eq name="w.enabled_edit" value="1"}
+	<input class="pic_hidden_input" type="hidden" name="{$w.field}" value="{$w.value}">
+	{/eq}
+	
+</div>
+

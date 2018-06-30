@@ -1,0 +1,33 @@
+								        	
+{neq name="panel_title" value=''}
+	<div class="panel">
+	    <div class="panel-heading">
+	        <span class="panel-title">{$panel_title}</span>
+	    </div>
+	    <div class="panel-body {$panel_scroll} pn">					        	
+{/neq}
+
+
+				
+				
+				
+				
+							        	
+					        	
+   		{php}
+   			echo TWidget($contObj)->tabs($tabs_config);
+   		{/php}
+		
+
+
+
+
+
+
+
+
+
+{neq name="panel_title" value=''}
+		</div>
+	</div>
+{/neq}

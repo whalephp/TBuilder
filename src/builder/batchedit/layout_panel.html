@@ -1,0 +1,44 @@
+{extend name="$_admin_base_layout" /}
+{block name="content"}
+	<div class="tab-block mb25">
+		<form method="post" action="{$_view_vars['form_action']}" class="form-horizontal" role="form">
+			<div class="mw1000 center-block">
+				
+				{/*简版居中型表单*/}
+				{foreach name="_view_vars['tab_group']" item="wg" key="tab_num"}
+				<div class="panel panel-primary panel-border top mb35">
+		            <div class="panel-heading">
+		                <span class="panel-title">{$wg.group_title}</span>
+		            </div>
+		            <div class="panel-body bg-light dark">
+		                <div class="admin-form">
+				    		{volist name="wg.group_wigets" id="w"}
+				    			<div class="section row mb10">
+		                        	<label  for="{$w.id_str}" class="field-label col-md-3 text-center">{$w.name}</label>
+		                        	<div class="col-md-9">
+				    					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+					    			</div>
+			                    </div>
+				        	{/volist}
+		                </div>
+		            </div>
+		        </div>
+		        {/foreach}
+		        
+		        {eq name="_view_vars['is_show_form_button']" value="1"}
+		        <div class=" center-block">
+					<button type="submit" class="btn btn-primary ajax-post" target-form="form-horizontal">提交</button>
+					<button type="button" class="btn go-back">返回</button>
+				</div>
+				{/eq}
+				
+			</div>
+		</form>
+	</div>
+{/block}
+
+
+
+
+
+

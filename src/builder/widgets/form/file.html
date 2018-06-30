@@ -1,0 +1,16 @@
+<div class="upload_file_btn_box" file_type='file' {$w.item_attr_str} file_ext="{$w.ext}" id_name="{$w.id_str}" id="{$w.id_str}_box">
+	<div class="image_box" enabled_edit="{$w.enabled_edit}">
+		{:get_file_list_html( $w['value'] )}
+		
+		{eq name="w.enabled_edit" value="1"}
+		<button type="button" class="btn btn-xs btn-primary upload_file_btn" limit_num="{$w.limit_num}" alt="" id_name="{$w.id_str}"><i class="fa fa-upload"></i>&nbsp;&nbsp;上传</button>
+		{/eq}
+		
+	</div>
+	
+	{eq name="w.enabled_edit" value="1"}
+	<input class="file_hidden_input" type="hidden" name="{$w.field}" value="{$w.value}">
+	{/eq}
+	
+</div>
+

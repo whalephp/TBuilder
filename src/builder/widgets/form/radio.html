@@ -1,0 +1,13 @@
+                <div class="option-group field mt5" {$w.item_attr_str}>
+                	{foreach name="$w['listdata']" item="vo" key="key" }
+                		<label class="option">
+						{if condition="( !is_array($vo) )"}
+							<input type="radio" name="{$w.field}" value="{$key}" {eq name="key" value="$w['value']"}checked{/eq} >
+							<span class="radio"></span>{$vo}
+						{else/}
+							<input type="radio" name="{$w.field}" value="{$vo[ $w['key_relevance'][0] ]}" {eq name="vo[ $w['key_relevance'][0] ]" value="$w['value']"}checked{/eq} >
+							<span class="radio"></span>{$vo[ $w['key_relevance'][1] ]}
+						{/if}
+						</label>
+					{/foreach}
+                </div>

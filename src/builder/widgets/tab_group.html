@@ -1,0 +1,35 @@
+
+{if condition="$_view_vars['tab_group_show_num']>0 || !empty($_view_vars['top_tab_btns'])"}
+<div class="nav-tabs-box">
+	
+	{//tab分组}
+	{notempty name="_view_vars['tab_group']"}
+    <ul class="nav nav-tabs tabs-border page-tab-group">
+    	{volist name="_view_vars['tab_group']" id="tab"}
+    	{notempty name="tab['group_title']"}
+        <li class="{$tab.li_class}">
+        	{eq name="tab.tab_type" value="url"}
+        		<a href="{$tab.tab_href}">
+        	{else}
+        		<a href="{$tab.tab_href}" data-toggle="tab" aria-expanded=true>
+        	{/eq}
+        		{$tab.group_title}</a>
+        </li>
+        {/notempty}
+        {/volist}                      			                   		
+    </ul>
+    {/notempty}
+    
+    {//tab上右侧的按钮}
+    {assign name="tabs" value="$_view_vars['top_tab_btns']"}
+    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/btn_opt_group.html"/}
+
+	<!--  
+    <div class="btn-opt-group ">	     
+		<a href="/admin.php/admin/config/add.html" target-form="ids" class="btn btn-sm btn-dark "><i class="fa fa-plus"></i> 新增</a>
+		<a href="/admin.php/admin/config/sort.html" target-form="ids" class="btn btn-sm btn-dark "><i class="fa fa-sort-amount-asc"></i> 排序</a>
+	</div>
+	-->
+	
+</div>
+{/if}

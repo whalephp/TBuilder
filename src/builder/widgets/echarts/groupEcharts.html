@@ -1,0 +1,42 @@
+                    
+                    
+                    <div class="panel" id="{$panel_id}">
+                    	{notempty name="panel_title"}
+                        <div class="panel-heading">
+                        	<span class="panel-icon"><i class="{$panel_icon}"></i></span>
+                            <span class="panel-title fw600">{$panel_title}</span>
+                        </div>
+                        {/notempty}
+                        <div class='panel-body {eq name="is_group" value="1"}dark{/eq} pn'><!-- bg-light -->
+                       	{if condition="($tab_num>0)"}
+                       		<!-- 左侧图表 -->
+                       		{notempty name="echart_type"}
+                       		<div class="{$chart_col_class} pn br-r">
+                       			{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
+                       		</div>
+                       		{/notempty}
+                       		                       		
+                       		<!-- 右侧Tab -->
+                       		{gt name="tab_col" value="0"}
+                           	<div class="{$tab_col_class} pn {eq name='tabs.is_single' value='0'}dark{/eq}"><!-- bg-light -->
+                           		<!--  
+                           		<div class="panel-body br-n panel-scroller scroller-xs scroller-pn pn" style="height:{$tab_height};max-height:{$tab_height};">
+                           		-->
+                         		{php}
+                         			//vd($tabs['widgets'][0]);
+                         			echo TWidget($contObj)->tabs($tabs);
+                         		{/php}
+								<!--  
+                         		</div>
+								-->                           		
+                           	</div>
+                           	{/gt}
+                        {elseif condition="!empty($widget)"/}
+                           	{assign name="w" value="$widget"}
+						    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom_widget_type_entry.html"/}
+                       	{else/}
+                       		<!-- 纯图表布局 -->
+                       		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
+						{/if}
+						</div>
+                    </div>

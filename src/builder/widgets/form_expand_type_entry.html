@@ -1,0 +1,14 @@
+{switch name="w.widget_type"}
+	{/*较完善组件*/}
+    {case value="html"}
+		{$w.content}
+    {/case}
+    {case value="title_line"}
+		{:TWidget($contObj)->titleLine([
+		    'title'		=> $w['title'],
+		    'icon_class'=> $w['icon_class'],
+		])}
+    {/case}
+    {default /}
+		<br/>系统暂不支持{$w.type}类型组件<br/>
+{/switch}

@@ -1,0 +1,49 @@
+{extend name="$_admin_base_layout" /}
+{block name="content"}
+
+	<div class="tab-block mb25 admin-form">
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/tab_group.html" /}
+		
+		<div class="panel panel-visible">
+		    <div class="panel-body pn">
+		    	<div id="datatable6_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+		    		
+		    		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/page_top.html" /}
+		    		
+					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/page_tree.html" /}
+		    		
+		    		<textarea style="display:none;" name="json_data" rows="" cols=""></textarea>
+		    		
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+{/block}
+
+{block name="script"}
+<script src="__VENDOR__/plugins/jquery.nestable.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$('.save_sort_list_data').click(function(){
+		var url = "{:url('')}";
+		var json_data = $("textarea[name='json_data']").val();
+		postData(url,{jsondata:json_data});
+	})
+	
+	$('#tree-box').nestable().on('change', function(e){
+		var list   = e.length ? e : $(e.target),output = list.data('output');
+        if (window.JSON) {
+        	var json_data = window.JSON.stringify(list.nestable('serialize'));
+            console.log(json_data);//, null, 2));
+            
+            $("textarea[name='json_data']").val( json_data );
+            
+        } else {
+        	alert('JSON browser support required for this demo.');
+        }
+	});
+})
+</script>
+{/block}

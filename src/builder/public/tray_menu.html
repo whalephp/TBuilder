@@ -1,0 +1,54 @@
+{eq name="_view_vars['is_show_tray_menu']" value="1"}
+
+                <!-- begin: .tray-left -->
+                <aside class="tray tray-left tray320">
+					
+					{empty name="_view_vars['tray_menu']['headHtml']"}
+						{notempty name="_view_vars['tray_menu']['headTitle']"}
+                    	<h4 class="mt5 mb20"> {$_view_vars['tray_menu']['headTitle']}</h4>
+                    	{/notempty}
+                    	
+                    	{notempty name="_view_vars['tray_menu']['headList']"}
+                    	<ul class="icon-list">
+                    		{volist name="_view_vars['tray_menu']['headList']" id="vo"}
+	                        <li>
+	                        	{notempty name="vo['icon_class']"}
+	                            <i class="{$vo['icon_class']} fa-lg pr10"></i>
+	                            {/notempty}
+	                            
+	                            {notempty name="vo['title']"}
+	                            <b> {$vo['title']}</b>
+	                            {/notempty}
+	                            
+	                            {notempty name="vo['desc']"}
+	                            {$vo['desc']}
+	                            {/notempty}
+	                        </li>
+	                        {/volist}
+	                    </ul>
+                    	{/notempty}
+                    
+                    {else/}
+                    	{$_view_vars['tray_menu']['headHtml']}
+					{/empty}
+					
+					
+					{notempty name="_view_vars['tray_menu']['menuList']"}
+                    <div id="nav-spy">
+                        <ul class="nav tray-nav tray-nav-border" data-smoothscroll="-70" data-spy="affix" data-offset-top="200">
+                        	{volist name="_view_vars['tray_menu']['menuList']" id="vo"}
+                            <li class="{eq name='key' value='0'}active{/eq}">
+                                <a href="#{$vo['id']}">
+                                {notempty name="vo['icon_class']"}<span class="{$vo['icon_class']} fa-lg"></span> {/notempty}{$vo['title']}
+                                </a>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                    {/notempty}
+                    
+
+                </aside>
+                <!-- end: .tray-left -->
+                
+{/eq}

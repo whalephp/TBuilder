@@ -1,0 +1,173 @@
+
+<style>
+	.block__list {
+		padding: 20px 0;
+		max-width: 360px;
+		margin-top: -8px;
+		margin-left: 5px;
+		background-color: #fff;
+	}
+	.block__list-title {
+		margin: -20px 0 0;
+		padding: 10px;
+		text-align: center;
+		background: #5F9EDF;
+	}
+	.block__list li {
+		cursor: move;
+	}
+	.block__list_words li {
+		background-color: #fff;
+		padding: 10px 40px;
+	}
+	.block__list_words .sortable-ghost {
+		opacity: 0.4;
+		background-color: #F4E2C9;
+	}
+	.block__list_words li:first-letter {
+		text-transform: uppercase;
+	}
+	.block__list_tags {
+		padding-left: 30px;
+	}
+	.block__list_tags:after {
+		clear: both;
+		content: '';
+		display: block;
+	}
+	.block__list_tags li {
+		color: #fff;
+		float: left;
+		margin: 8px 20px 10px 0;
+		padding: 5px 10px;
+		min-width: 10px;
+		background-color: #5F9EDF;
+		text-align: center;
+	}
+	.block__list_tags li:first-child:first-letter {
+		text-transform: uppercase;
+	}
+	.clear:after {
+		content: '.';
+		height: 0;
+		visibility: hidden;
+		clear: both;
+		display: block;
+	}
+	.pb_top .tags_s,.pb_top .tags_s li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.pb_top .tags_s {
+		width: 100%;
+		margin: 10px 0 20px 0;
+	}
+	.pb_top .tags_s li {
+		float: left;
+		width: 14%;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		border: 1px solid #DEE1E3;
+		background: #F7FBFD;
+		cursor: move;
+	}
+	.pb_main .tp {
+		width: 100%;
+		padding-bottom: 6px;
+		border-bottom: 1px solid #DEE1E3;
+	}
+	.pb_main .tp .tit {
+		float: left;
+		display: block;
+	}
+	.pb_main .tp .reset {
+		float: right;
+		display: block;
+	}
+	.pb_main .tags_a,.pb_main .tags_a li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.pb_main .tags_a {
+		width: 100%;
+	}
+	.pb_main .tags_a li {
+		float: left;
+		width: 20%;
+		margin: 6px 0;
+	}
+	.pb_main .tags_a li input {
+		float: left;
+	}
+	.pb_main .tags_a li span {
+		float: left;
+		margin: 1px 0 0 4px;
+		display: block;
+	}
+	.panel .btn_save_t {
+		padding: 6px 18px;
+		border: 1px solid #267CC5;
+		background: #2E90DA;
+		color: #fff;
+	}
+</style>
+
+
+<!-- 自定义显示栏目设置 -->
+<div id="diy-columns-modal" class="popup-lg bg-none mfp-with-anim mfp-hide">
+
+    <div class="panel">
+	    <form action="{:url('')}" method="post" class="diy_columns_form">
+	        <div class="panel-heading">
+	            <span class="panel-icon">
+	                <i class="glyphicon glyphicon-list-alt"></i>
+	            </span>
+	            <span class="panel-title"> 自定义显示列</span>
+	        </div>
+	        <div class="panel-body">
+	         	<div class="pb_top">
+	        		<div class="tit">拖动区块调整顺序：</div>
+	        		<ul class="tags_s clear">
+	        			{volist name="has_set" id="vo"}
+							<li><div tv="{$key}">{$vo[1]}<input type="hidden" name="columns[]" value="{$key}"></div></li>
+	        			{/volist}
+	        		</ul>
+	        	</div>
+	        	<div class="pb_main">
+	        		<div class="tp clear">
+	        			<span class="tit">显示列：</span>
+	        			<a href="javascript:;" class="reset">重置</a>
+	        		</div>
+	        		<ul class="tags_a clear">
+	        			{volist name="all_columns" id="vo"}
+	        				<li>
+	        					<input type="checkbox" class="check_this" tv="{$key}" {in name="key" value="$select_columns"}checked{/in}>
+	        					<span>{$vo[1]}</span>
+	    					</li>
+	        			{/volist}
+	        		</ul>
+	        	</div>
+	        </div>
+	        <div class="panel-footer text-center">
+	            <button class="btn btn_save_t" type="button">确定</button>
+	            <input type="hidden" name="savediycolumns" value="1">
+	        </div>
+        </form>
+    </div>
+</div>
+<input name="list1SortOrder" type="hidden" />      
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

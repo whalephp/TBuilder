@@ -1,0 +1,22 @@
+
+                        {eq name="is_group" value="1"}
+                        	<div class="tab-block {$position_config.tab_box_position_class}">
+							    <ul class="{$position_config.ul_class}">
+							    	{volist name="echart_type" id="vo"}
+							    	<li class='{eq name="key" value="0"}active{/eq}'>
+							            <a href="#{$vo.tab_id}" echart-for="#{$vo.tab_id}" class='{eq name="key" value="0"}br-t-n{/eq}' data-toggle="tab">{$vo['tab_title']}</a>
+							        </li>
+							    	{/volist}
+							    </ul>
+							    <div class="tab-content br-t-n br-r-n br-b-n">
+							    	{volist name="echart_type" id="vo"}
+							    	<div id="{$vo.tab_id}" class="tab-pane {eq name="key" value="0"}active{/eq}">
+							        	<div  class="echart-canvas" echart-data='{$echart_data|json_encode}' echart-config='{$vo["echart-config"]}' echart-option='{$vo["echart-option"]}' style="width: {$width}; height: {$height}; margin: 0 auto"></div>
+							        </div>
+							    	{/volist}
+							    </div>
+							</div>
+                        {else/}
+				        	<div  class="echart-canvas" echart-data='{$echart_data|json_encode}' echart-config='{$echart_type["echart-config"]}' echart-option='{$echart_type["echart-option"]}' style="width: {$width}; height: {$height}; margin: 0 auto"></div>
+						{/eq}
+						

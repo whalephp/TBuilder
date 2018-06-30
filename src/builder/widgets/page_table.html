@@ -1,0 +1,76 @@
+
+
+<table class="table table-striped table-hover display dataTables_wrapper" id="datatable5" cellspacing="0" width="100%">
+
+	
+	<thead>
+	    <tr>
+	    	{eq name="_view_vars['is_show_table_ids']" value="1"}
+			<th class="row-selected"><input class="check-all" type="checkbox"></th>
+			{/eq}
+			
+	    	{volist name="_view_vars.columns" id="c"}
+	    	<th style="{$c.config.style}">
+	    		{if condition="$c.config.order"}
+	    		<a href="{$c.config.order_url}" class="" data-toggle="tooltip" data-original-title="排序">
+                	<i class="{$c.config.order_icon}"></i>
+                </a>
+                {/if}
+	    		{$c.name}
+	    	</th>
+	    	{/volist}
+	    </tr>
+	</thead>
+	
+	
+	<tbody>
+		{empty name="list"}
+		  	<tr>
+		    	<td colspan="20" class="text-center">暂无数据</td>
+		    </tr>
+	  	{else/}
+			{volist name="list" id="vo"}
+		    <tr>
+		    	{eq name="_view_vars['is_show_table_ids']" value="1"}
+		    	<td><input class="ids" type="checkbox" name="id[]" value="{$vo['id']}"></td>
+		    	{/eq}
+		    	
+		    	{volist name="_view_vars.columns" id="c"}
+		    	<td style="{$c.config.style}" td-field-name="{$c['field']}">
+		     	{switch name="c.config.type"}
+				    {case value="field"}
+				    	{:get_tval($vo,$c)}
+				    {/case}
+				    {case value="img"}
+				    <a class="gallery-item" href="{:get_cover($vo[ $c['field'] ])}">
+				    	{notempty name="vo[ $c['field'] ]"}
+				    	<img src="{:get_cover($vo[ $c['field'] ])}"/>
+				    	{/notempty}
+				    </a>
+				    {/case}
+				    {case value="url"}
+				    	<a href="{:get_turl($vo,$c['config'])}">{:get_tval($vo,$c)}</a>
+				    {/case}
+				    {case value="btn"}
+				    	{volist name="_view_vars.list_item_btns" key="key" id="btn"}
+					    	{:getTableListBtn($btn,$vo)}
+					    	{if $key%$_view_vars['list_button_line_num']==0}<br/>{/if}
+				    	{/volist}
+				    {/case}
+				    
+				    {default /}
+				{/switch}
+	        	</td>
+	        	{/volist}
+	        </tr>
+	        {/volist}
+        {/empty}
+    </tbody>
+</table>
+{$page|default=''}
+
+
+
+
+
+

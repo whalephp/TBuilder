@@ -1,0 +1,120 @@
+{extend name="$_admin_base_layout" /}
+{block name="content"}
+
+	<div class="tab-block mb25 admin-form">
+		
+		
+		
+		
+		
+		<div class="container">
+		    <div class="row">
+		        <div class="col-sm-12">
+		            <table class="table table-hover" id="table">
+		                <thead>
+		                    <tr data-tabullet-map="id">
+		                        <!--  
+		                        <th width="50" data-tabullet-map="_index" data-tabullet-readonly="true">No</th>
+		                        <th data-tabullet-map="name">Nama</th>
+		                        <th data-tabullet-map="level">Level</th>
+		                        -->
+		                        {volist name="_view_vars.columns" id="c"}
+						    	<th data-tabullet-map="{$c['field']}" {eq name="c['field']" value="id"}data-tabullet-readonly="true"{/eq} style="{$c.config.style}">{$c.name}</th>
+						    	{/volist}
+	    	
+	    						<th width="50" data-tabullet-type="edit"></th>
+		                        <th width="50" data-tabullet-type="delete"></th>
+		                    </tr>
+		                </thead>
+		            </table>
+		        </div>
+		    </div>
+		</div>
+		
+		
+		
+		
+		
+		
+	</div>
+	
+{/block}
+
+
+
+{block name="script"}
+    <script>
+    $(function() {
+        var source 	 = eval('(' + '{$list|json_encode}' + ')');
+		var page_url = "{$Think.server.REQUEST_URI}";
+        
+        function resetTabullet() {
+            $("#table").tabullet({
+                data: source,
+                textClass:'gui-input',
+                editClass: 'btn btn-sm btn-default',
+                deleteClass: 'btn btn-sm btn-danger',
+                saveClass: 'btn btn-sm btn-success',
+                deleteContent: '删除',
+                editContent: '编辑',
+                saveContent: '保存',
+                action: function(mode, data) {
+                    console.dir(mode);
+                    log(data);
+                    
+                    // 
+                    if( mode=='delete' ){
+                    	var post_data  = {tabullet_mode:mode,id:data}
+                    }else{
+                    	var post_data  = data;
+                    	post_data.tabullet_mode = mode;
+                    }
+                    
+                    //log(post_data);return false;
+                    
+                    // 先用这些数据操作接口，操作成功后再执行后续动作
+					$.ajax({
+						type: "POST",
+						url: page_url,
+						data: post_data,
+						success: function(retData){
+							//-----------------------------------------------------
+							retData = eval('(' + retData + ')');
+							log('retData================>');log(retData);
+							if( retData.status ){
+								data = retData.data;
+								switch(mode){
+				                    case 'save':	// 新增
+				                    	source.push(data);
+				                    	break;
+									case 'edit':	// 修改
+										for (var i = 0; i < source.length; i++) {
+				                            if (source[i].id == data.id) {
+				                                source[i] = data;
+				                            }
+				                        }
+				                    	break;
+									case 'delete':	// 删除
+										for (var i = 0; i < source.length; i++) {
+				                            if (source[i].id == data.id) {
+				                                source.splice(i, 1);
+				                                break;
+				                            }
+				                        }
+										break;
+			                    }
+			                    resetTabullet();
+							}
+							//-----------------------------------------------------
+						}
+					});
+                    
+                    
+                }
+            });
+        }
+
+        resetTabullet();
+    });
+    </script>
+{/block}

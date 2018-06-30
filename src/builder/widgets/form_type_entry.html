@@ -1,0 +1,62 @@
+{switch name="w.type"}
+	{/*较完善组件*/}
+    {case value="textarea"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/textarea.html" /}
+    {/case}
+    {case value="input"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/input.html" /}
+    {/case}
+    {case value="price_group"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/price_group.html" /}
+    {/case}
+    {case value="color"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/input.html" /}
+    {/case}
+    {case value="hidden"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/hidden.html" /}
+    {/case}
+    {case value="select"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/select.html" /}
+    {/case}
+    {case value="radio"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/radio.html" /}
+    {/case}
+    {case value="switch"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/switch.html" /}
+    {/case}
+    {case value="checkbox"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/checkbox.html" /}
+    {/case}
+    {case value="val"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/val.html" /}
+    {/case}
+    {case value="cropper"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/cropper.html" /}
+    {/case}
+    {case value="images"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/images.html" /}
+    {/case}
+    {case value="file"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/file.html" /}
+    {/case}
+    {case value="multirecord"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/multirecord.html" /}
+    {/case}
+    
+    {/*无公共包围代码*/}
+    {case value="kindeditor"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/kindeditor.html" /}
+    {/case}
+    {case value="editormd"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/editormd.html" /}
+    {/case}
+    {case value="tree_checkbox"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/tree_checkbox.html" /}
+    {/case}
+    {case value="listbox"}
+        {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/listbox.html" /}
+    {/case}
+    
+    {default /}
+		<br/>系统暂不支持{$w.type}类型组件<br/>
+{/switch}

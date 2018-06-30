@@ -1,0 +1,123 @@
+    <!-- BEGIN: PAGE SCRIPTS -->
+    <!-- jQuery -->
+    <!--  
+    <script src="__VENDOR__/jquery/jquery-1.11.1.min.js"></script>
+    -->
+    <script src="__VENDOR__/jquery/jquery-3.1.1.min.js"></script>
+    <script src="__VENDOR__/jquery/jquery_migrate/jquery-migrate-3.0.0.min.js"></script>
+    <script src="__VENDOR__/jquery/jquery_ui/jquery-ui.min.js"></script>
+    <!-- Theme Javascript -->
+    <script src="__ASSETS__/js/utility/utility.js"></script>
+    <!--  -->
+    <script src="__ASSETS__/js/demo/demo.js"></script>
+    <script src="__ASSETS__/js/main.js"></script>
+    <!-- Widget Javascript -->
+    <script src="__ASSETS__/js/demo/widgets.js"></script>
+    <script src="__VENDOR__/plugins/zeroModal/zeroModal.js"></script>
+	<script src="__VENDOR__/plugins/jquerytoast/jquery.toast.js"></script>
+	<script src="__VENDOR__/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	<script type="text/javascript">
+    (function(){
+        var ThinkPHP = window.Think = {
+        	//"ENTRANCE"	: "admin",
+            "ROOT"   	: "__ROOT__", //当前网站地址
+            "APP"    	: "__APP__", //当前项目地址
+            "PUBLIC" 	: "__PUBLIC__", //项目公共目录地址
+            "DEEP"   	: "{:C('URL_PATHINFO_DEPR')}", //PATHINFO分割符
+            "MODEL"  	: ["{:C('URL_MODEL')}", "{:C('URL_CASE_INSENSITIVE')}", "{:C('URL_HTML_SUFFIX')}"],
+            "VAR"    	: ["{:MODULE_NAME}", "{:CONTROLLER_NAME}", "{:ACTION_NAME}"],
+            "modal_show"		: "{$modal_show}",
+            "main_title"		: "{$_view_vars['main_title']|default=''}",
+            "modal_jump_type"	: "{$modal_jump_type}",
+            "entrance"			: "{$_view_vars['constant_arr']['entrance']}",
+            "base_domain"		: "{$_view_vars['constant_arr']['base_domain']}",
+            "second_domain"		: "{$_view_vars['constant_arr']['second_domain']}",
+        }
+        
+    })();
+    </script>    
+    
+    <script type="text/javascript" src="__VENDOR__/plugins/artTemplate/template.js"></script>
+    <script src="__STATIC__/common/js/think.js"></script>
+    <script src="__STATIC__/common/js/jQuery.mytool.js"></script>
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    <script type="text/javascript">
+    $(".tree_checkbox").closest('.admin-form').removeClass('admin-form');
+    jQuery(document).ready(function() {
+
+        "use strict";
+
+        // Init Theme Core      
+        Core.init();
+
+        // Init Demo JS
+        Demo.init();
+
+        // Init Widget Demo JS
+        // demoHighCharts.init();
+
+        // Because we are using Admin Panels we use the OnFinish 
+        // callback to activate the demoWidgets. It's smoother if
+        // we let the panels be moved and organized before 
+        // filling them with content from various plugins
+
+        // Init plugins used on this page
+        // HighCharts, JvectorMap, Admin Panels
+
+        // Init Admin Panels on widgets inside the ".admin-panels" container
+        $('.admin-panels').adminpanel({
+            grid: '.admin-grid',
+            draggable: true,
+            preserveGrid: true,
+            mobile: false,
+            onStart: function() {
+                // Do something before AdminPanels runs
+            },
+            onFinish: function() {
+                $('.admin-panels').addClass('animated fadeIn').removeClass('fade-onload');
+            },
+            onSave: function() {
+                $(window).trigger('resize');
+            }
+        });
+		
+    });
+    </script>
+    <!-- END: PAGE SCRIPTS -->
+    
+
+    
+	
+	
+
+
+
+
+	
+	
+	
+	
+	<script type="text/javascript">var $311 = $.noConflict(true);window.jQuery = jQuery = $ = $311;</script>
+    {php}if(isset($_view_vars['extend']['extend_js']))
+    {echo $_view_vars['extend']['extend_js'];}
+    {/php}
+    

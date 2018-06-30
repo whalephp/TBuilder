@@ -1,0 +1,22 @@
+	{notempty name="topFilters"}
+	<form method="get" action="">
+		<div id="datatable3_filter" class="dataTables_filter">
+			{volist name="topFilters" id="vo"}
+			
+			{assign name="w" value="$vo"}
+			{switch name="vo.type"}
+				{case value="input"}
+					<label><input type="search" class="form-control input-sm" name="{$vo.field}" value="{:I($vo['field'])}" placeholder="{$vo.name_desc}" aria-controls="datatable3"></label>
+			    {/case}
+			    {case value="select"}
+					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/select.html" /}
+			    {/case}
+				{default /}
+					<label>系统暂不支持{$vo.type}类型组件</label>
+			{/switch}
+			
+			{/volist}
+			<button type="submit" class="btn btn-sm btn-dark"><i class="fa fa-search"></i> 查询</button>
+		</div>
+	</form>
+	{/notempty}

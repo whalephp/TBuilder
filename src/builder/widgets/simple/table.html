@@ -1,0 +1,45 @@
+								        	
+{neq name="panel_title" value=''}
+<div class="{$col_class}">
+	<div class="panel">
+	    <div class="panel-heading">
+	        <span class="panel-title">{$panel_title}</span>
+	    </div>
+	    <div class="panel-body {$panel_scroll} pn">					        	
+{/neq}								        	
+					        	
+       	<table class="table table-striped {$border_class}">
+		    
+		    {eq name="show_head" value="1"}
+		    <thead>
+		        <tr>
+		        	{volist name="columns" id="vo"}
+		        	<th>{$vo[1]}</th>
+		        	{/volist}
+		        </tr>
+		    </thead>
+		    {/eq}
+		    
+		    <tbody>
+		    	{empty name="list"}
+		    	<tr>
+		        	<td colspan="20" class="text-center">暂无数据</td>
+		        </tr>
+		    	{else/}
+		    	{volist name="list" id="vo"}
+		        <tr>
+		        	{volist name="columns" key="field" id="v"}
+		        	<td>{$vo[ $v[0] ]}</td>
+		        	{/volist}
+		        </tr>
+		        {/volist}
+		    	{/empty}
+		    	
+		    </tbody>
+		</table>
+		
+{neq name="panel_title" value=''}
+		</div>
+	</div>
+</div>
+{/neq}

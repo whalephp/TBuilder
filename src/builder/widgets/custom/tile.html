@@ -1,0 +1,46 @@
+{eq name="w.sub_type" value="adv"}
+
+	<div class="panel panel-tile text-center br-a br-{$w.bg_class}">
+	    <div class="panel-body bg-{$w.bg_class} light">
+	    	{notempty name="w.icon_class"}
+	        <i class="{$w.icon_class} text-muted fs70 mt10"></i>
+	        {/notempty}
+	        <h1 class="{$w.h1_class}">{$w.value}</h1>
+	        <h6 class="{$w.text_class}">{$w.text}</h6>
+	    </div>
+	    
+	    {eq name="w.use_footer" value="1"}
+	    <div class="panel-footer bg-{$w.bg_class} dark br-t br-{$w.bg_class} p12">
+	        <span class="fs11">
+	            {notempty name="w.footer_icon"}<i class="{$w.footer_icon} pr5"></i>{/notempty}
+	            {$w.footer_text}
+	        </span>
+	    </div>
+	    {/eq}
+	</div>
+
+{else/}
+
+	<div class="panel of-h mb10 bg-{$w.bg_class} light">
+	    <div class="pn pl20 p5">
+	        <div class="icon-bg">
+	            <i class="{$w.icon_class}"></i>
+	        </div>
+	        <h2 class="mt15 lh15">
+	            <b>{$w.value} <span class="fs14">{$w.unit}</span></b>
+	        </h2>
+	        <h5 class="{$w.text_class}">{$w.text}</h5>
+	    </div>
+	</div>
+
+{/eq}
+
+
+
+
+
+
+
+
+
+

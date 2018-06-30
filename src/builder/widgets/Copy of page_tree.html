@@ -1,0 +1,111 @@
+<style>
+.tree-line,.tree-line h4{
+	height: 30px;
+	line-height: 30px;
+}
+.tree-line img{
+	height: 30px;
+	width: 30px;
+}
+.media.child{
+	margin-left:30px;
+}
+.tree-line>*{
+	float:left;
+	padding-right:10px;
+}
+.media {
+    margin-top: 0px;
+}
+.media-right a{
+	margin-right:5px;
+}
+</style>
+
+<div class="dd panel-body">
+
+	{:create_tree_html($list)}
+
+	<!--  
+	{volist name="list" id="vo"}
+    <div class="media">
+	    
+	    <div class="media-body">
+	    	<div class="tree-line">
+	    		<a class="media-left" href="#">
+			        <img data-src="holder.js/60x60" alt="60x60" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEyLjUiIHk9IjMwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjB4NjA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+			    </a>
+		        
+		        <h4 class="media-heading"><i class="fa fa-fw fa-tachometer"></i> 第一层</h4>
+		        <span><i class="fa fa-link"></i> Test/table</span>
+		        
+		        <div class="media-right">
+			        <a href="#"><span class="fa fa-pencil text-muted mb5"></span></a>
+			        <a href="#"><span class="fa fa-remove text-danger-light"></span></a>
+			    </div>
+	    	</div>
+	      	
+	      	
+	      	<div class="media child">
+	            <div class="media-body">
+	            	<div class="tree-line">
+		            	<a class="media-left pull-left" href="#">
+					        <img data-src="holder.js/60x60" alt="60x60" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEyLjUiIHk9IjMwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjB4NjA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+					    </a>
+		                <h4 class="media-heading pull-left">第二层</h4>
+	                </div>
+	                
+	                
+	                <div class="media child">
+			            <div class="media-body">
+			            	<div class="tree-line">
+				            	<a class="media-left pull-left" href="#">
+							        <img data-src="holder.js/60x60" alt="60x60" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEyLjUiIHk9IjMwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjB4NjA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+							    </a>
+				                <h4 class="media-heading pull-left">第三层</h4>
+			                </div>
+			            </div>
+			        </div>
+	                
+	            </div>
+	        </div>
+	
+	    </div>
+	    
+	</div>
+    {/volist}
+	-->
+	
+	<!--  
+	<div class="media">
+	    <a class="media-left" href="#">
+	        <img data-src="holder.js/60x60" alt="60x60" style="width: 60px; height: 60px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEyLjUiIHk9IjMwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjB4NjA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+	    </a>
+	    <div class="media-body">
+	        <h4 class="media-heading">Media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus.
+	        <div class="media">
+	            <a class="media-left" href="#">
+	                <img data-src="holder.js/60x60" alt="60x60" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEyLjUiIHk9IjMwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjB4NjA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 60px; height: 60px;">
+	            </a>
+	            <div class="media-body">
+	                <h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo
+	                
+	                <div class="media">
+			            <a class="media-left" href="#">
+			                <img data-src="holder.js/60x60" alt="60x60" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEyLjUiIHk9IjMwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjB4NjA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 60px; height: 60px;">
+			            </a>
+			            <div class="media-body">
+			                <h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo
+			            </div>
+			        </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="media-right pl30">
+	        <a href="#"><span class="fa fa-pencil text-muted mb5"></span></a>
+	        <br>
+	        <a href="#"><span class="fa fa-remove text-danger-light"></span></a>
+	    </div>
+	</div>
+	-->
+</div>

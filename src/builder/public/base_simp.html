@@ -1,0 +1,90 @@
+{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/head.html" }
+<style>
+#content{
+padding: 0 !important;
+}
+body{
+min-height: 50px !important;
+height:100% !important;
+}
+#content_wrapper,.sb-l-o #content_wrapper,#content_wrapper, .sb-l-o #content_wrapper {
+    margin-left: 0 !important;
+    left: 0 !important;
+    padding: 0 !important;
+}
+#content{
+height:100% !important;
+}
+#main:before{
+background: #fff;
+}
+.tab-block .tab-content{
+    border: 0px;
+    border-top: 1px solid #e5e5e5;
+    padding: 0px 0px;
+    overflow-x:hidden
+}
+</style>
+
+
+<body class="dashboard-page sb-l-o sb-r-c modal-show-{$modal_show}">
+
+	    <!-- Start: Main -->
+	    <div id="main" class="slimscroll-222">
+
+
+	        <!-- Start: Content-Wrapper -->
+	        <section id="content_wrapper">
+	        
+	        
+	        	<!-- Begin: Content -->
+	            <section id="content" class="animated fadeIn {$_view_vars['page_theme']['content_class']}">
+		        	{eq name="_view_vars['is_show_tray']" value="1"}
+		            	<!-- 左侧边栏定位区 -->
+		            	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/tray_menu.html"}         	
+	            		
+	            		<div class="tray tray-center">
+		            		<!-- 主体内容区 -->
+		            		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/custom_widget.html"}         
+		            		{block name="content"}{/block}
+	            		</div>
+	         			   		
+	            		<!-- 右侧边栏定位区 -->
+		            	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/tray_right.html"}         
+	            		
+	            	{else/}
+	            		<!-- 主体内容区 -->
+	            		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/custom_widget.html"}
+	            		{block name="content"}{/block}
+	            	{/eq}
+	            </section>
+	        </section>
+	        <!-- End: Content-Wrapper -->
+	        
+	        
+	    </div>
+	    <!-- End: Main -->
+
+</body>
+</html>
+
+{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/script.html"}
+{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/widget_script.html"}
+<script src="__STATIC__/common/js/common.js"></script>
+
+
+{block name="script"}{/block}
+<script type="text/javascript">
+$(function(){
+	var tab_group_show_num = "{$_view_vars['tab_group_show_num']}";
+	if( tab_group_show_num=="0" ){
+		$('.tab-block .tab-content').css({'border-top':'0px'});
+	}
+	$('#href-page-modal .panel-title', window.parent.document).text( "{$_view_vars['main_title']}" );
+})
+</script>
+
+
+
+
+

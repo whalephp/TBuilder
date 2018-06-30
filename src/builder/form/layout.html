@@ -1,0 +1,47 @@
+{extend name="../vendor/whalephp/phpexcel-helper/src/builder/public/base.html" /}
+{block name="content"}
+	<div class="tab-block">
+	
+		{/*整版型表单*/}
+	    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/tab_group.html" /}
+	    <form method="post" action="{$_view_vars['form_action']}" class="form-horizontal {$_view_vars['form_class']|default=''}" role="form">
+		    <div class="tab-content">
+		    
+		    	{foreach name="_view_vars['tab_group']" item="wg" key="tab_num"}
+		    		 <div id="tab_{$tab_num}" class="tab-pane {$wg.li_class} admin-form">
+		    		{volist name="wg.group_wigets" id="w"}
+		    		
+		    		
+		    			{if condition="$w['full_show']"}
+                        	{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+		    			{else}
+			    			{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/public/layout/widget_top.html" /}
+		    				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+		    				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/public/layout/widget_bottom.html" /}	
+		    			{/if}
+		    			
+		        	{/volist}
+		        	</div>
+		        {/foreach}     
+
+				{eq name="_view_vars['is_show_form_button']" value="1"}
+				<div class="button-group-box mb25">
+					<button type="submit" class="btn btn-primary ajax-post" target-form="form-horizontal">提交</button>
+					<button type="button" class="btn go-back">返回</button>
+				</div>
+				{else}
+					<button type="submit" class="btn btn-primary ajax-post hide" target-form="form-horizontal">提交</button>
+				{/eq}
+		        
+		    </div>
+	    </form>
+	    
+	</div>
+{/block}
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+					<div class="panel tree_checkbox">
+                       	
+                       	{assign name="id_name" value="$w['key_relevance'][0]"}
+                       	{assign name="value_name" value="$w['key_relevance'][1]"}
+                       	
+                       	{foreach name="$w['listdata']" item="first_vo" }
+                       		<div class="tree_checkbox_layer">
+	                       		<div class="panel-heading">
+	                                <span class="panel-title">
+		                            	<span class="checkbox-custom">
+										    <input type="checkbox" {:is_check_html($first_vo[ $id_name ],$w['value'])} name="{$w.field}[]" value="{$first_vo[ $id_name ]}" id="checkbox_{$first_vo[ $id_name ]}">
+										    <label for="checkbox_{$first_vo[ $id_name ]}">A-{$first_vo[ $value_name ]}</label>
+										</span>
+	                                </span>
+	                            </div>
+	                            
+	                            <div class="panel-body bg-light pt20 pbn pl30 mb20">
+	                                <div class="row">
+	                                    <div class="col-sm-12">
+	                                    		{if condition="isset($first_vo['_child'])"}
+	                                        	{foreach name="$first_vo['_child']" item="second_vo" }	
+	                                            <div class="form-group tree_checkbox_layer">
+	                                                        
+													<div class="checkbox-custom mb10 mr10">
+													    <input type="checkbox" {:is_check_html($second_vo[ $id_name ],$w['value'])}  name="{$w.field}[]" value="{$second_vo[ $id_name ]}" id="checkbox_{$second_vo[ $id_name ]}">
+													    <label for="checkbox_{$second_vo[ $id_name ]}">B-{$second_vo[ $value_name ]}</label>
+													</div>
+													
+													<div class="child_checkbox_box">
+														{if condition="isset($second_vo['_child'])"}
+														{foreach name="$second_vo['_child']" item="third_vo" }	
+														<span class="checkbox-custom mb5 mr10 tree_checkbox_layer">
+														    <input type="checkbox" {:is_check_html($third_vo[ $id_name ],$w['value'])}  name="{$w.field}[]" value="{$third_vo[ $id_name ]}" id="checkbox_{$third_vo[ $id_name ]}">
+														    <label for="checkbox_{$third_vo[ $id_name ]}">C-{$third_vo[ $value_name ]}</label>
+														</span>
+														{/foreach}
+														{/if}
+													</div>
+	                                                    
+	                                            </div>
+	                                            {/foreach}
+	                                            {/if}
+	                                    </div>
+	                                </div>
+	                            </div>
+							</div>
+						{/foreach}
+						
+					</div>
+            
+            
+            

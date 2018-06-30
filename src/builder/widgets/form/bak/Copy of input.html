@@ -1,0 +1,78 @@
+
+
+<div class="section row mb10">
+    <label for="{$w.id_str}" class="field-label col-md-3 text-center">{$w.name}</label>
+    <div class="col-md-9">
+    
+    
+    				<label {notempty name="w['icon']"}class="field prepend-icon"{else}class="field"{/notempty}>
+	                    <input type="{$w.type_sub}" name="{$w.field}" id="{$w.id_str}" value="{$w.value}" class="gui-input {$w.item_class}" placeholder="请输入{$w.name}">
+	                    
+	                    {notempty name="w['tip']"}
+	                    <b class="tooltip tip-left-top"><em> {$w.tip}</em></b>
+	                    {/notempty}
+	                    
+	                    {notempty name="w['icon']"}
+	                    <label for="tooltip5" class="field-icon">
+	                        <i class="{$w.icon}"></i>
+	                    </label>
+	                    {/notempty}
+	                </label>
+	                
+	             
+    </div>
+    {notempty name="w['desc']"}
+    <div class="col-md-9">
+		<span class="help-block mt10"><!-- <i class="fa fa-bell"></i> --> {$w.desc}</span>
+	</div>
+	{/notempty}
+</div>
+
+
+
+
+
+
+
+
+<div class="form-group">
+	<label for="{$w.id_str}" class="col-lg-2 control-label">{$w.name}</label>
+	<div class="bs-component">
+		<div class="col-lg-5">
+			<div class="section">
+			
+			
+			
+                <label {notempty name="w['icon']"}class="field prepend-icon"{else}class="field"{/notempty}>
+                    <input type="{$w.type_sub}" name="{$w.field}" id="{$w.id_str}" value="{$w.value}" class="gui-input {$w.item_class}" placeholder="请输入{$w.name}">
+                    
+                    {notempty name="w['tip']"}
+                    <b class="tooltip tip-left-top"><em> {$w.tip}</em></b>
+                    {/notempty}
+                    
+                    {notempty name="w['icon']"}
+                    <label for="tooltip5" class="field-icon">
+                        <i class="{$w.icon}"></i>
+                    </label>
+                    {/notempty}
+                    
+                </label>
+            
+            
+            
+            </div>
+		</div>
+		<div class="col-lg-5 pl5">
+			<span class="help-block mt10"><!-- <i class="fa fa-bell"></i> --> {$w.desc}</span>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+

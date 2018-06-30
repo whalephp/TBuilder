@@ -1,0 +1,21 @@
+<div id="widget-{$w.id_str}" class="form-group widget-box widget-type-{$w.type} {$w.box_class}">
+{eq name="_view_vars['is_show_form_desc']" value="1"}
+	<label for="{$w.id_str}" class="col-sm-2 col-xs-2 control-label">
+	{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/item/form_label_title.html" /}
+	</label>
+	<div class="bs-component">
+		<div class="col-sm-6 col-xs-6">
+			<!-- <div class="section"> -->
+{else}
+	<label for="{$w.id_str}" class="col-sm-3 col-xs-3 control-label">{eq name="w.is_necessary" value="1"}<span class="text-danger">*&nbsp;</span>{/eq}{$w.name}{notempty name="w.name"}：{/notempty}</label>
+	<div class="bs-component">
+		<div class="col-sm-9 col-xs-9">
+			<!-- <div class="section"> -->
+{/eq}
+
+
+
+
+
+
+

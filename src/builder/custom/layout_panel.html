@@ -1,0 +1,46 @@
+{extend name="$_admin_base_layout" /}
+{block name="content"}
+	<div class="tab-block mb25">
+		<form method="post" action="{$_view_vars['form_action']}" class="form-horizontal" role="form">
+			<div class="mw1000 center-block">
+				
+				{/*简版居中型表单*/}
+				<div class="panel {$_view_vars['single_panel']['class']} panel-border top mb35">
+					
+		            {notempty name="_view_vars['single_panel']['panel_title']"}
+		            <div class="panel-heading">
+		                <span class="panel-title">{$_view_vars['single_panel']['panel_title']}</span>
+		            </div>
+		            {/notempty}
+		            
+		            <div class="panel-body"><!-- panel-body bg-light dark -->
+		                <!-- <div class="admin-form"></div> -->
+			    		{//自定义数据展示区}
+						{include file="$custom_view" /}
+		                
+		                {$_view_vars['append_content_html']}
+		                
+		            </div>
+		            
+		            {eq name="_view_vars['is_show_form_button']" value="1"}
+		            <div class="admin-form">
+						<div class="panel-footer text-right" style="background: #f8f8f8;border-top: 0px;">
+		                    <button type="submit" class="btn btn-primary ajax-post" target-form="form-horizontal">提交</button>
+							<button type="button" class="btn go-back">返回</button>
+		                </div>
+					</div>
+					{/eq}
+		        </div>
+		        
+		        
+				
+			</div>
+		</form>
+	</div>
+{/block}
+
+
+
+
+
+

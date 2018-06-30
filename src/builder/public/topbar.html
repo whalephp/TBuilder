@@ -1,0 +1,137 @@
+
+            <!-- Start: Topbar-Dropdown -->
+            <div id="topbar-dropmenu">
+                <div class="topbar-menu row">
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="metro-tile">
+                            <span class="glyphicon glyphicon-inbox"></span>
+                            <span class="metro-title">Messages</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="metro-tile">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="metro-title">Users</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="metro-tile">
+                            <span class="glyphicon glyphicon-headphones"></span>
+                            <span class="metro-title">Support</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="metro-tile">
+                            <span class="fa fa-gears"></span>
+                            <span class="metro-title">Settings</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="metro-tile">
+                            <span class="glyphicon glyphicon-facetime-video"></span>
+                            <span class="metro-title">Videos</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="#" class="metro-tile">
+                            <span class="glyphicon glyphicon-picture"></span>
+                            <span class="metro-title">Pictures</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Topbar-Dropdown -->
+
+
+
+			{eq name="_view_vars['is_show_topbar']" value="1"}
+			{switch name="_view_vars.topbar_type"}
+			    {case value="1"}
+	            {//面包屑导航}
+			    <!-- Start: Topbar -->
+	            <header id="topbar" class="{$_view_vars['page_theme']['topbar_breadcrumb_class']}">
+	            	<div class="header-box">
+	            		
+	            		{notempty name="_view_vars['header_back_link']"}
+	            		<a class="header-back-link btn btn-info" style="height:46px;line-height:46px;" href="{$_view_vars['header_back_link']}"><i class="fa fa-chevron-left"></i></a>
+	            		{/notempty}
+	            		
+		                <div class="topbar-left">
+		                    <ol class="breadcrumb">
+		                        <li class="crumb-active">
+		                            <a href="javascript:;">{$_view_vars['main_title']}</a>
+		                        </li>
+		                        <li class="crumb-icon">
+		                            <a href="/">
+		                                <span class="glyphicon glyphicon-home"></span>
+		                            </a>
+		                        </li>
+		                        
+		                        {volist name="crumbsArr" id="vo"}
+		                        <li class="crumb-link">
+		                        	{if condition="$vo.is_last eq 0"}
+		                        		<a href="{:url($vo['url'])}">{$vo['title']}</a>
+									{else /}
+										{$vo['title']}
+									{/if}
+		                        </li>
+		                        {/volist}
+		                        <!--  
+		                        <li class="crumb-link">
+		                            <a href="dashboard.html">Home</a>
+		                        </li>
+		                        <li class="crumb-trail">Dashboard</li>
+		                        -->
+		                    </ol>
+		                </div>
+		                {//侧边}
+		                <div class="topbar-right">
+							{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/topbar-right.html"}
+		                </div>
+		            </div>
+	            </header>
+	            <!-- End: Topbar -->
+			    {/case}
+			    
+			    
+			    
+			    
+			    {case value="2"}
+			    {//顶部菜单导航}
+			    <!-- Start: Topbar -->
+	            <header id="topbar" class="{$_view_vars['page_theme']['topbar_nav_class']}">
+		            <div class="header-box">
+		            
+		            	{notempty name="_view_vars['header_back_link']"}
+	            		<a class="header-back-link btn btn-info" href="{$_view_vars['header_back_link']}"><i class="fa fa-chevron-left"></i></a>
+	            		{/notempty}
+	            		
+		                <div class="topbar-left">
+		                    <ul class="nav nav-list nav-list-topbar pull-left">
+		                       {volist name="_view_vars.topbar_menus" id="topbar_menus"}
+		                       <li class="{$topbar_menus.class}">
+		                            <a href="{$topbar_menus.href}">{$topbar_menus.title}</a>
+		                        </li>
+		                       {/volist}
+		                    </ul>
+		                </div>
+		                
+		                {//侧边}
+		                <div class="topbar-right hidden-xs hidden-sm">
+		                	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/topbar-right.html"}
+		                </div>
+		            </div>
+	            </header>
+	            <!-- End: Topbar -->
+			    
+			    {/case}
+			    {default /}
+			    
+			{/switch}
+			{/eq}
+
+			
+
+
+			
+            

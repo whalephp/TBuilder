@@ -1,0 +1,59 @@
+<div class="form-group" {$w.item_attr_str}>
+	<label for="{$w.id_str}" class="col-lg-2 control-label">{$w.name}</label>
+	<div class="bs-component">
+		<div class="col-lg-5 dropzone ">
+			
+				<!--  
+				<div class="section">
+	                <label class="field pt10">
+	                    {:get_twval($w)}
+	                </label>
+	            </div>
+				-->
+	            
+	            
+	            
+	            <div class="dz-preview dz-processing dz-error dz-image-preview hidden example-preview">
+			        <div class="dz-details">
+			            <div class="dz-filename">
+			                <span data-dz-name="">example_image.jpg</span>
+			            </div>
+			            <div class="dz-size" data-dz-size="">
+			                <strong>40.2</strong> KiB</div>
+			            <img data-dz-thumbnail="" alt="avatar" src="__ASSETS__/img/avatars/1.jpg" class="img-responsive">
+			        </div>
+			        <div class="dz-progress">
+			            <span class="dz-upload" data-dz-uploadprogress=""></span>
+			        </div>
+			        <div class="dz-success-mark">
+			            <span></span>
+			        </div>
+			        <div class="dz-error-mark">
+			            <span></span>
+			        </div>
+			        <div class="dz-error-message">
+			            <span data-dz-errormessage="">Server responded with 0 code.</span>
+			        </div>
+			        <a class="dz-remove" href="javascript:undefined;" data-dz-remove>Remove file</a>
+			    </div>
+	            
+            	<form action="{:url('')}" class="dropzone" id="dropZone2" style="height: 490px;">
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                    </div>
+                </form>
+            
+            <!--  
+            {notempty name="w['icon']"}
+            
+            {else}
+            	<input id="{$w.id_str}" type="{$w.type_sub} {$w.item_class}" {$w.item_attr_str} class="form-control" name="{$w.field}" value="{$w.value}" placeholder="请输入{$w.name}">
+			{/notempty}
+            -->
+			
+		</div>
+		<div class="col-lg-5 pl5">
+			<span class="help-block mt10"><!-- <i class="fa fa-bell"></i> --> {$w.desc}</span>
+		</div>
+	</div>
+</div>

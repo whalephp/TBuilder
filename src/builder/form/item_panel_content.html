@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+
+
+
+            <div class="panel-heading">
+                <span class="panel-title">{$wg.group_title}</span>
+            </div>
+            <div class="panel-body bg-light dark">
+                <div class="admin-form">
+		    		{volist name="wg.group_wigets" id="w"}
+		    			{eq name="w.widget_type" value='widget'}
+		    			{/* 常规组件循环  */}
+		    			<div id="widget-{$w.id_str}" class="section row mb10 widget-box widget-type-{$w.type} {$w.box_class} ">
+		    				{if condition="$w['full_show']"}
+	                        	<div class="col-sm-12 col-xs-12">
+			    					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+				    			</div>
+			    			{else}
+				    			<label for="{$w.id_str}" class="field-label col-sm-3 col-xs-3 text-right">
+	                        		{notempty name="w.desc"}<i class="fa fa-question-circle filed-hint"  data-toggle="tooltip" data-placement="top" title="{$w.desc}"></i>{/notempty} {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/item/form_label_title.html" /}
+	                        	</label>
+	                        	<div class="col-sm-9 col-xs-9 text-left">
+			    					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+				    			</div>
+			    			{/if}
+	                    </div>
+	                    {else}
+	                    	{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_expand_type_entry.html" /}
+	                    {/eq}
+		        	{/volist}
+                </div>
+                
+                {$wg.append_html}
+                
+            </div>
+            
+            
+           
+            
+            
+            
+            
+            
+            

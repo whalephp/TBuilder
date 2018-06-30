@@ -1,0 +1,18 @@
+{switch name="w.type"}
+	{/*较完善组件*/}
+    {case value="tile"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom/tile.html" /}
+    {/case}
+    {case value="table"}
+		{:TWidget($contObj)->table($w,false)}
+    {/case}
+    {case value="html"}
+    	<div class="pl10 pt10 pb10">{$w.html}</div>
+    {/case}
+	{case value="echart"}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom/echart.html" /}
+    {/case}
+    
+    {default /}
+		<br/>系统暂不支持{$w.type}类型widget<br/>
+{/switch}

@@ -1,0 +1,10 @@
+{extend name="$_admin_base_layout" /}
+{block name="content"}
+
+	<div class="tab-block mb25 admin-form">
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/tab_group.html" /}
+		
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/builder/panel_table.html" /}
+	</div>
+	
+{/block}

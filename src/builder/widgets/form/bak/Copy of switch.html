@@ -1,0 +1,35 @@
+<div class="form-group">
+	<label for="inputInline" class="col-lg-2 control-label">{$w.name}</label>
+	<div class="bs-component">
+		<div class="col-lg-5">
+		
+
+			
+			<div class="section mb15">
+                <div class="option-group field">
+                
+                    {foreach name="$w['listdata']" item="vo" key="key" }
+                		<label class="switch block">
+						{if condition="( !is_array($vo) )"}
+							<input type="checkbox" name="{$w.field}" id="f1" value="{$key}" {eq name="key" value="$w['value']"}checked{/eq} >
+                        	<label for="f1" data-on="ON" data-off="OFF"></label>
+						{else/}
+							<input type="checkbox" name="{$w.field}" id="f1" value="{$vo[ $w['key_relevance'][0] ]}" {eq name="vo[ $w['key_relevance'][0] ]" value="$w['value']"}selected{/eq} >
+                        	<label for="f1" data-on="ON" data-off="OFF"></label>
+						{/if}
+						</label>
+					{/foreach}
+                    
+                </div>
+            </div>
+			
+			
+			
+			
+        
+		</div>
+		<div class="col-lg-5 pl5">
+			<span class="help-block mt10"><!-- <i class="fa fa-bell"></i> --> {$w.desc}</span>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<span class="btn btn-xs btn-info add-one-multirecord" multirecord-data='{$w.value}' tempname="{$w.id_str}"><i class="glyphicon glyphicon-plus"></i></span>
+<div class="input-field-sort" id="multirecord-box-{$w.id_str}">
+
+
+</div>
+
+<script id="temp-{$w.id_str}" {$w.item_attr_str} type="text/html">
+	<div class="api-input mt5">
+		<span class="btn btn-sm btn-default sortable-handle pull-left"><i class="glyphicon glyphicon-move"></i></span>
+
+		{volist name="w.sub_widgets" id="sw"}
+			{switch name="sw.type"}
+				{case value="input"}
+			    	<input type="text" class="form-control key-name pull-left input-sm {$sw.item_class}" filed_name="{$sw.field}" name="multirecord[{$w.field}][{$sw.field}][]" id="{$sw.id_str}" size="9" placeholder="{$sw.name_desc}">
+			    {/case}
+			    {case value="select"}
+				    <select name="multirecord[{$w.field}][{$sw.field}][]" filed_name="{$sw.field}" class="key-must pull-left {$sw.item_class}">
+				        {foreach name="$sw['listdata']" item="ld_vo" key="key" }
+				        	{if condition="( !is_array($ld_vo) )"}
+								<option value="{$key}">{$ld_vo}</option>
+							{else/}
+								<option value="{$ld_vo[ $sw['key_relevance'][0] ]}">{$ld_vo[ $sw['key_relevance'][1] ]}</option>
+							{/if}
+						{/foreach}
+				    </select>
+			    {/case}
+		        {default /}
+					<br/>系统暂不支持{$sw.type}类型组件<br/>
+			{/switch}
+		{/volist}
+	    <span class="btn btn-sm btn-danger ml5 del-one-multirecord" ><i class="glyphicon glyphicon-remove"></i></span>
+	</div>
+</script>
+
+
+
+
+
+
+
+
+
+

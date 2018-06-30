@@ -1,0 +1,96 @@
+{eq name="_view_vars['is_show_tray_right']" value="1"}
+
+
+<!-- begin: .tray-right -->
+<aside class="tray tray-right tray290 pn">
+	
+	
+	{eq name="_view_vars['tray_right']['is_empty']" value="0"}
+	
+    <!-- 时间线 -->
+    {notempty name="_view_vars['tray_right']['timelineList']"}
+    <ol class="timeline-list pl5 mt5">
+    	{volist name="_view_vars['tray_right']['timelineList']" id="vo"}
+        <li class="timeline-item whale-timeline-item">
+        	<div class="timeline-item-head">
+	            <div class="timeline-icon bg-{$vo.bg_class} light">
+	                <span class="{$vo.icon_class}"></span>
+	            </div>
+	            <div class="timeline-desc"><b>{$vo.title}</b></div>
+	            <div class="timeline-date">{$vo.datetime}</div>
+        	</div>
+       		<div class="timeline-desc timeline-item-footer">{$vo.desc}</div>
+        </li>
+        {/volist}
+    </ol>
+	{/notempty}
+
+	{notempty name="_view_vars['tray_right']['help']['item']"}
+	<style>
+	#app-help-container .help-container-body {
+	    padding: 10px 10px 60px;
+	}
+	#app-help-container .help-body-title {
+	    color: #333;
+	    border-left: 2px solid #3283fa;
+	    padding-left: 8px;
+	    padding-right: 10px;
+	    line-height: 12px;
+	    margin: 10px 0;
+	}
+	#app-help-container .help-body-content {
+	    padding: 10px;
+	    margin-bottom: -20px;
+	}
+	#app-help-container .help-body-content p {
+	    margin-bottom: .5em;
+	    line-height: 1.8em;
+	}
+	#app-help-container .help-body-content hr {
+	    border: none;
+	    border-top: 1px solid #e5e5e5;
+	    margin: 20px 0;
+	}
+	</style>
+	<div id="app-help-container">
+		<div class="help-container-body">
+			<div>
+				<div class="help-body-title" data-yz_ctn_module="helpcenter">
+					{$_view_vars['tray_right']['help']['title']}
+					{notempty name="_view_vars['tray_right']['help']['link']"}
+					<a href="//help.youzan.com" target="_blank" class="pull-right">进入></a>
+					{/notempty}
+				</div>
+				<div class="help-body-content" data-yz_ctn_module="helpcenter">
+					
+					{volist name="_view_vars['tray_right']['help']['item']" id="vo"}
+			        <p>
+						<span style="line-height: 1.5;"><span style="color: #333333;">{$vo[0]}</span><br>
+						<span style="color: #999999;">{$vo[1]}</span>
+					</p>
+			        {/volist}
+					
+					<!-- <hr> -->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	{/notempty}
+
+
+	<!-- 自定义HTML内容 -->
+    {notempty name="_view_vars['tray_right']['html']"}
+    <div>{$_view_vars['tray_right']['html']}</div>
+    {/notempty}
+    
+    
+    {else/}
+    	<div class="mt40 text-center">{$_view_vars['tray_right']['empty_msg']}</div>
+    {/eq}
+
+</aside>
+<!-- end: .tray-right -->
+
+
+{/eq}

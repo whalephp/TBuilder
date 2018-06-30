@@ -1,0 +1,43 @@
+                    <!--  
+                    {//下拉选择}
+                    <div class="ib topbar-dropdown">
+                        <label for="topbar-multiple" class="control-label pr10 fs11 text-muted">Reporting Period</label>
+                        <select id="topbar-multiple" class="hidden">
+                            <optgroup label="Filter By:">
+                                <option value="1-1">Last 30 Days</option>
+                                <option value="1-2" selected="selected">Last 60 Days</option>
+                                <option value="1-3">Last Year</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    -->
+                    
+                	{volist name="_view_vars.topbar_buttons" id="btn"}
+					<a href="{$btn['href']}" {$btn['attr_str']}  class="btn btn-default btn-sm light fw600 ml10 {$btn['item_class']}"><span class="{$btn['icon_class']} pr5"></span> {$btn.title} </a>
+					{/volist}
+                	
+                	<!--  
+                	{//弹出侧边}
+                    <div class="ml15 ib va-m" id="toggle_sidemenu_r">
+                        <a href="#" class="pl5">
+                            <i class="fa fa-sign-in fs22 text-primary"></i>
+                            <span class="badge badge-danger badge-hero">3</span>
+                        </a>
+                    </div>
+                    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

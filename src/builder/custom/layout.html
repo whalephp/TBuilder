@@ -1,0 +1,36 @@
+{extend name="$_admin_base_layout" /}
+{block name="content"}
+	<div class="tab-block mb25">
+		
+		{//tab分组}
+		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/tab_group.html" /}
+		
+		<div class="panel panel-visible">
+		    <div class="panel-body pn">
+		    	<div id="datatable6_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+		    		
+		    		{//顶部按钮}
+		    		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/page_top.html" /}
+		    		
+		    		{//自定义数据展示区}
+					{include file="$custom_view" /}
+					
+					{$_view_vars['append_content_html']}
+		    		
+		        </div>
+		    </div>
+		</div>
+		
+	</div>
+{/block}
+
+
+{block name="script"}
+<script type="text/javascript">
+$(function(){
+	
+
+	
+})
+</script>
+{/block}
