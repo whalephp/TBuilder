@@ -583,6 +583,8 @@ trait ViewSetting
 		}
 		*/
 		
+		
+		/* 2018年7月2日 13:07:02
 		// 赋值到页面上
 		$this->assign('_view_vars',$this->_view_vars);
 		$this->assign('config',$config);
@@ -594,9 +596,9 @@ trait ViewSetting
 				// 2017.12.25	新版布局变量（依据当前应用所处环境动态设置）
 				'_home_layout'		 => $this->_view_vars['_home_layout'],
 		]);
+		*/
+		
 		//$this->assign( $this->_view_vars['assign_data'] );
-		
-		
 		//$template = $template.'?t=2';
 		//vd($template);vd($config['admin_view_public']);vde( $config[ $admin_current_view_base_layout ] );
 	}
