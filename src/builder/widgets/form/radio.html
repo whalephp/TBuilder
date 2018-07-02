@@ -1,4 +1,4 @@
-                <div class="option-group field mt5" {$w.item_attr_str}>
+                <div class="option-group field mt5" {$w.item_attr_str|raw}>
                 	{foreach name="$w['listdata']" item="vo" key="key" }
                 		<label class="option">
 						{if condition="( !is_array($vo) )"}

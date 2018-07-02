@@ -5,7 +5,7 @@
 					
 					{empty name="_view_vars['tray_menu']['headHtml']"}
 						{notempty name="_view_vars['tray_menu']['headTitle']"}
-                    	<h4 class="mt5 mb20"> {$_view_vars['tray_menu']['headTitle']}</h4>
+                    	<h4 class="mt5 mb20"> {$_view_vars['tray_menu']['headTitle']|raw}</h4>
                     	{/notempty}
                     	
                     	{notempty name="_view_vars['tray_menu']['headList']"}

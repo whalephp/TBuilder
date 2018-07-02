@@ -8,7 +8,7 @@
                         <div class='panel-body bg-light {eq name="is_group" value="1"}dark{/eq} pn'>
                         	{notempty name="table"}
                         		<div class="col-md-{$table.chart_col} pn br-r">
-                        		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
+                        		{include file="../vendor/whalephp/tbuilder/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
                         		</div>
                             	<div class="col-md-{$table.tab_col} pn bg-white">
                             		<div class="panel-body br-n panel-scroller scroller-xs scroller-pn pn" style="height:{$tab_height};max-height:{$tab_height};">
@@ -16,7 +16,7 @@
                           			</div>
                             	</div>
                         	{else/}
-                        		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
+                        		{include file="../vendor/whalephp/tbuilder/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
 							{/notempty}
 						</div>
                     </div>

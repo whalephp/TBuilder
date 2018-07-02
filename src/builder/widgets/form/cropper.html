@@ -1,9 +1,9 @@
-<div class="upload_img_btn_box" id_name="{$w.id_str}" id="{$w.id_str}_box" {$w.item_attr_str}>
+<div class="upload_img_btn_box" id_name="{$w.id_str}" id="{$w.id_str}_box" {$w.item_attr_str|raw}>
 	<div class="image_box">
 		{:get_pic_list_html( $w['value'] )}
 		
 		{eq name="w.enabled_edit" value="1"}
-		<img class="pic_upload_btn upload_cut_img_btn" alt="" limit_num="{$w.limit_num}" pic_wh="{$w.pic_wh}" pic_ratio="{$w.pic_ratio}" id_name="{$w.id_str}" src="\public\static\admin\images/upload_img.png">
+		<img class="pic_upload_btn upload_cut_img_btn" alt="" limit_num="{$w.limit_num}" pic_wh="{$w.pic_wh}" pic_ratio="{$w.pic_ratio}" id_name="{$w.id_str}" src="{$_view_vars.upload_img}">
 		{/eq}
 		
 	</div>

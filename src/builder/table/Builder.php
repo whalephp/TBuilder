@@ -153,8 +153,10 @@ class Builder extends TBuilder
 	public function assignVars()
 	{
 		//vde( $this->_view_vars );
-		$this->assign('topFilters',$this->topFilters);
-		$this->assign('_view_vars',$this->_view_vars);
+// 		$this->assign('topFilters',$this->topFilters);
+// 		$this->assign('_view_vars',$this->_view_vars);
+
+		$this->_view_vars['assign_data']['topFilters'] = $this->topFilters;
 	}
 	
 	

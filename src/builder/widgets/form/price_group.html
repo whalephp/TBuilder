@@ -4,7 +4,7 @@
     <div class="w300 inline-block">
 	    <span class="w80 text-right inline-block">{$w['pg-group-name']} * </span>
 	    <div class="w60 inline-block">
-		    <input type="number" name="{$w.field}"  v-model="number" id="{$w.id_str}" unit_price="{$w['pg-unit-price']}" {$w.item_attr_str} value="{$w.value}" class="gui-input {$w.item_class}" placeholder="{$w.placeholder}">
+		    <input type="number" name="{$w.field}"  v-model="number" id="{$w.id_str}" unit_price="{$w['pg-unit-price']}" {$w.item_attr_str|raw} value="{$w.value}" class="gui-input {$w.item_class}" placeholder="{$w.placeholder}">
 	    </div>
 	     个
     </div>

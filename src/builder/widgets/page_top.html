@@ -3,15 +3,15 @@
 <div class="top">
 	{//顶部左侧按钮}
 	{assign name="tabs" value="$_view_vars['top_btns']"}
-    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/btn_opt_group.html"/}
+    {include file="../vendor/whalephp/tbuilder/src/builder/widgets/btn_opt_group.html"/}
 	
 	{//顶部右侧过滤器}
-	{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/page_top_filters.html"/}
+	{include file="../vendor/whalephp/tbuilder/src/builder/widgets/page_top_filters.html"/}
 	
 	{//顶部右侧按钮}
 	<div class="pull-right">
 	{assign name="tabs" value="$_view_vars['top_right_btns']"}
-    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/btn_opt_group.html"/}
+    {include file="../vendor/whalephp/tbuilder/src/builder/widgets/btn_opt_group.html"/}
 	</div>
 </div>
 {/if}

@@ -1,9 +1,9 @@
-{extend name="../vendor/whalephp/phpexcel-helper/src/builder/public/base.html" /}
+{extend name="$_admin_base_layout" /}
 {block name="content"}
 	<div class="tab-block">
 	
 		{/*整版型表单*/}
-	    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/tab_group.html" /}
+	    {include file="../vendor/whalephp/tbuilder/src/builder/widgets/tab_group.html" /}
 	    <form method="post" action="{$_view_vars['form_action']}" class="form-horizontal {$_view_vars['form_class']|default=''}" role="form">
 		    <div class="tab-content">
 		    
@@ -13,11 +13,11 @@
 		    		
 		    		
 		    			{if condition="$w['full_show']"}
-                        	{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+                        	{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_type_entry.html" /}
 		    			{else}
-			    			{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/public/layout/widget_top.html" /}
-		    				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
-		    				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/public/layout/widget_bottom.html" /}	
+			    			{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form/public/layout/widget_top.html" /}
+		    				{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_type_entry.html" /}
+		    				{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form/public/layout/widget_bottom.html" /}	
 		    			{/if}
 		    			
 		        	{/volist}

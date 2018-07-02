@@ -265,7 +265,7 @@
 				id      : idName,
 	            height  : 400,
 	            saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
-	            path    : "/public/static/vendor/plugins/editormd/lib/",
+	            path    : "/static/vendor/editors/editormd/lib/",
 	            onchange : function() {
                     $('#'+idName).find('textarea').trigger("change");
                 }
@@ -1152,8 +1152,8 @@
 								data.pic_wh = pic_wh;
 								data.jid 	= $('#jid').val();
 								
-								var base_url= (Think.entrance=='admin')?'/admin':'//console.'+Think.base_domain+'/user';
-								var url 	= base_url + "/Picture/uploadPictureStream";
+								//var base_url= (Think.entrance=='admin')?'/admin':'//console.'+Think.base_domain+'/user';
+								var url 	= '/admin.php/admin/picture/uploadPictureStream';
 								$.ajax({
 									url:  url,
 									data: data,

@@ -5,10 +5,10 @@
 		{eq name="w.hide_label" value="0"}
 			<div class="section row mb10 widget-box widget-type-{$w.type} {$w.box_class}">
 				<label for="{$w.id_str}" class="field-label col-sm-{$_view_vars['page_theme']['form_label_col']}">
-				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/item/form_label_title.html" /}
+				{include file="../vendor/whalephp/tbuilder/src/builder/widgets/item/form_label_title.html" /}
 				</label>
 				<div class="col-sm-{$_view_vars['page_theme']['form_value_col']}">
-					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+					{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_type_entry.html" /}
 				</div>
 			</div>
 			{notempty name="w.desc"}
@@ -18,7 +18,7 @@
 			</div>
 			{/notempty}
 		{else/}
-			{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+			{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_type_entry.html" /}
 		{/eq}
   	{/volist}
 </div>

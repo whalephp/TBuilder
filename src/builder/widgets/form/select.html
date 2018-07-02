@@ -1,5 +1,5 @@
 			<label class="field select">
-				<select name="{$w.field}" id="{$w.id_str}" {$w.item_attr_str} class="{$w.item_class}">
+				<select name="{$w.field}" id="{$w.id_str}" {$w.item_attr_str|raw} class="{$w.item_class}">
 					{foreach name="$w['listdata']" item="ld_vo" key="key" }
 						{if condition="( !is_array($ld_vo) )"}
 							<option value="{$key}" {eq name="key" value="$w['value']"}selected{/eq} >{$ld_vo}</option>

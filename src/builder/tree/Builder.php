@@ -11,14 +11,14 @@
 
 namespace whalephp\tbuilder\builder\tree;
 
-use whalephp\tbuilder\TBuilder;
+use whalephp\tbuilder\builder\table\Builder as TableBuilder;
 
 /**
  * 
  * @date: 2017-4-23 下午10:58:14
  * @author: qw_xingzhe <qwei2013@gmail.com>
  */
-class Builder extends TBuilder
+class Builder extends TableBuilder
 {
 
 	

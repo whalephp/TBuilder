@@ -1,7 +1,7 @@
 
 			
 <div {notempty name="w['icon']"}class="field prepend-icon"{else}class="field"{/notempty}>
-    <input type="{$w.type_sub}" name="{$w.field}" id="{$w.id_str}" {$w.item_attr_str} value="{$w.value}" class="gui-input {$w.item_class}" placeholder="{$w.placeholder}">
+    <input type="{$w.type_sub}" name="{$w.field}" id="{$w.id_str}" {$w.item_attr_str|raw} value="{$w.value}" class="gui-input {$w.item_class}" placeholder="{$w.placeholder}">
     {eq name="w['type']" value="color"}
     <div class="color-show-box" style="background:{$w.value};"></div>
     {/eq}

@@ -1,5 +1,5 @@
 <!-- Plugin: Dual Select List -->
-<select multiple="multiple" size="18" name="{$w.field}" id="{$w.id_str}" {$w.item_attr_str} class="{$w.item_class} listbox">
+<select multiple="multiple" size="18" name="{$w.field}" id="{$w.id_str}" {$w.item_attr_str|raw} class="{$w.item_class} listbox">
 	{foreach name="$w['listdata']" item="ld_vo" key="key" }
 		{if condition="( !is_array($ld_vo) )"}
 			<option value="{$key}" {in name="key" value="$w['value']"}selected{/in} >{$ld_vo}</option>

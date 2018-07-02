@@ -1,4 +1,4 @@
-{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/head.html" }
+{include file="../vendor/whalephp/tbuilder/src/builder/public/head.html" }
 <style>
 #content{
 padding: 0 !important;
@@ -41,20 +41,20 @@ background: #fff;
 	            <section id="content" class="animated fadeIn {$_view_vars['page_theme']['content_class']}">
 		        	{eq name="_view_vars['is_show_tray']" value="1"}
 		            	<!-- 左侧边栏定位区 -->
-		            	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/tray_menu.html"}         	
+		            	{include file="../vendor/whalephp/tbuilder/src/builder/public/tray_menu.html"}         	
 	            		
 	            		<div class="tray tray-center">
 		            		<!-- 主体内容区 -->
-		            		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/custom_widget.html"}         
+		            		{include file="../vendor/whalephp/tbuilder/src/builder/public/custom_widget.html"}         
 		            		{block name="content"}{/block}
 	            		</div>
 	         			   		
 	            		<!-- 右侧边栏定位区 -->
-		            	{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/tray_right.html"}         
+		            	{include file="../vendor/whalephp/tbuilder/src/builder/public/tray_right.html"}         
 	            		
 	            	{else/}
 	            		<!-- 主体内容区 -->
-	            		{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/custom_widget.html"}
+	            		{include file="../vendor/whalephp/tbuilder/src/builder/public/custom_widget.html"}
 	            		{block name="content"}{/block}
 	            	{/eq}
 	            </section>
@@ -68,8 +68,8 @@ background: #fff;
 </body>
 </html>
 
-{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/script.html"}
-{include file="../vendor/whalephp/phpexcel-helper/src/builder/public/widget_script.html"}
+{include file="../vendor/whalephp/tbuilder/src/builder/public/script.html"}
+{include file="../vendor/whalephp/tbuilder/src/builder/public/widget_script.html"}
 <script src="__STATIC__/common/js/common.js"></script>
 
 

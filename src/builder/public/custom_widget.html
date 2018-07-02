@@ -4,7 +4,7 @@
 		{volist name="row" key="col_key" id="col"}
 		<div class="col-sm-{$col['col']}">
 			{volist name="col['widgets']" key="widget_key" id="w"}
-				{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom_widget_type_entry.html"/}
+				{include file="../vendor/whalephp/tbuilder/src/builder/widgets/custom_widget_type_entry.html"/}
 			{/volist}
 		</div>
 		{/volist}

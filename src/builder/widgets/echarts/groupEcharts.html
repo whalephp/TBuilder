@@ -12,7 +12,7 @@
                        		<!-- 左侧图表 -->
                        		{notempty name="echart_type"}
                        		<div class="{$chart_col_class} pn br-r">
-                       			{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
+                       			{include file="../vendor/whalephp/tbuilder/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
                        		</div>
                        		{/notempty}
                        		                       		
@@ -33,10 +33,10 @@
                            	{/gt}
                         {elseif condition="!empty($widget)"/}
                            	{assign name="w" value="$widget"}
-						    {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/custom_widget_type_entry.html"/}
+						    {include file="../vendor/whalephp/tbuilder/src/builder/widgets/custom_widget_type_entry.html"/}
                        	{else/}
                        		<!-- 纯图表布局 -->
-                       		{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
+                       		{include file="../vendor/whalephp/tbuilder/src/builder/widgets/echarts/groupEchartsWidthOutPanle.html" /}
 						{/if}
 						</div>
                     </div>

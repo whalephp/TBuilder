@@ -1,4 +1,4 @@
-<div class="form-group" {$w.item_attr_str}>
+<div class="form-group" {$w.item_attr_str|raw}>
 	<label for="{$w.id_str}" class="col-lg-2 control-label">{$w.name}</label>
 	<div class="bs-component">
 		<div class="col-lg-5 dropzone ">
@@ -47,7 +47,7 @@
             {notempty name="w['icon']"}
             
             {else}
-            	<input id="{$w.id_str}" type="{$w.type_sub} {$w.item_class}" {$w.item_attr_str} class="form-control" name="{$w.field}" value="{$w.value}" placeholder="请输入{$w.name}">
+            	<input id="{$w.id_str}" type="{$w.type_sub} {$w.item_class}" {$w.item_attr_str|raw} class="form-control" name="{$w.field}" value="{$w.value}" placeholder="请输入{$w.name}">
 			{/notempty}
             -->
 			

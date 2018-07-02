@@ -30,9 +30,9 @@ trait ViewSetting
 			'base_domain'	=> BASE_DOMAIN,
 			'second_domain'	=> SECOND_DOMAIN
 			*/
-		'entrance'		=> '',
-		'base_domain'	=> '',
-		'second_domain'	=> ''
+			'entrance'		=> '',
+			'base_domain'	=> '',
+			'second_domain'	=> ''
 		],
 	
 		//微信配置
@@ -98,9 +98,6 @@ trait ViewSetting
 
 		//Form 构建器配置数组
 		//============================================
-		'form'	=> [
-			
-		],
 		
 		
 		//框架类
@@ -129,7 +126,7 @@ trait ViewSetting
 		
 		//自由布局组件
 		//============================================
-		//'custom_view'	=> '',
+		'custom_view'	=> '../vendor/whalephp/tbuilder/src/builder/custom/empty.html',
 		'custom_widget'	=> [
 			/*	
 			//添加后效果数据格式
@@ -169,6 +166,8 @@ trait ViewSetting
 			'panel_title'	=> '',
 			'class'			=> 'panel-primary',
 		],
+		
+		'upload_img'	=> '/static/common/img/upload_img.png',
 		
 		//主题
 		//============================================
@@ -240,7 +239,7 @@ trait ViewSetting
 			],
 			'html'		=> '',		// 自定义html内容
 		],
-		
+		'crumbsArr'		=> [],		// 面包屑导航
 		'assign_data'	=> [],		// 需要最终赋值到页面的数据
 		
 	];
@@ -563,14 +562,10 @@ trait ViewSetting
 		$this->_view_vars['page_theme']['form_value_col'] = 12 - $this->_view_vars['page_theme']['form_label_col'];
 		$this->_view_vars['form_action'] = (empty($this->_view_vars['form_action']))?'':$this->_view_vars['form_action'];
 		
-		
 		//vd($this->_view_vars['page_theme']);
-		
-		
-		
-		
-		
-		
+		// 执行不同构建器赋值方法
+		//$this->assignVars();
+		$this->assignAllVars();
 		
 		$view_replace_str = config('template.tpl_replace_string');
 		foreach ($view_replace_str as $key=>$val){
@@ -606,6 +601,7 @@ trait ViewSetting
 		//vd($template);vd($config['admin_view_public']);vde( $config[ $admin_current_view_base_layout ] );
 	}
 	
+	/*
 	public function fetch($template = '', $vars = [], $replace = [], $config = [])
 	{
 		
@@ -635,7 +631,7 @@ trait ViewSetting
 		//vde($template);
 		return parent::fetch($template, $vars, $replace, $config);
 	}
-	
+	*/
 	
 	
 	

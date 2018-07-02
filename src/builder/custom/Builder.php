@@ -23,7 +23,7 @@ class Builder extends TBuilder
 	
 	public function _initialize(){
 		parent::_initialize();
-		$this->assign(['custom_view'=>'../vendor/whalephp/phpexcel-helper/src/builder/widgets/empty.html']);
+		$this->assign(['custom_view'=>'../vendor/whalephp/tbuilder/src/builder/widgets/empty.html']);
 	}
 	
 	/**
@@ -34,8 +34,8 @@ class Builder extends TBuilder
 		if( $custom_view!='' && strpos($custom_view, '.')===FALSE && strpos($custom_view, '/')===FALSE ){
 			$custom_view = strtolower(CONTROLLER_NAME) .'/'. $custom_view;
 		}
-		$this->assign(['custom_view'=>$custom_view]);
-		//$this->_view_vars['custom_view'] = $custom_view;
+		//$this->assign(['custom_view'=>$custom_view]);
+		$this->_view_vars['custom_view'] = $custom_view;
 		return $this;
 	}
 	

@@ -24,6 +24,13 @@ class TBuilder	// extends CommonBase
     protected $builder_type			= '';
     protected $request;
     
+    public function __call($method, $args)
+    {
+    	if (isset($this->$method)) {
+    		$func = $this->$method;
+    		return call_user_func_array($func, $args);
+    	}
+    }
     
     /*
     //页面元素变量
@@ -85,10 +92,9 @@ class TBuilder	// extends CommonBase
     
     	$newObj = new $class;
     	if( $obj ){
-    		$newObj->contObj 	= $obj;
+    		//$newObj->contObj 	= $obj;
     		//$newObj->_view_vars = $obj->_view_vars;	// 2017.12.15
     	}
-    	
     	//加入组件类型中（ builder_common.tree 二层数组类配置 ）
     	$newObj->recordWidget( 'builder_common.' . $type );
     	$newObj->request_param = request()->param();
@@ -96,14 +102,13 @@ class TBuilder	// extends CommonBase
     	
     	$newObj->builder_type = $type;
     	
-    	define('DS', DIRECTORY_SEPARATOR);
 //     	defined('APP_PATH') or define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']) . DS);
 //     	defined('ROOT_PATH') or define('ROOT_PATH', dirname(realpath(APP_PATH)) . DS);
 //     	vd(APP_PATH);vd(ROOT_PATH);
 
     	
     	
-    	defined('TBUILDER_PATH') or define('TBUILDER_PATH', dirname(__FILE__) . DS);
+    	defined('TBUILDER_PATH') or define('TBUILDER_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
     	
     	//vd( TBUILDER_PATH );
     	
@@ -335,10 +340,9 @@ class TBuilder	// extends CommonBase
      */
     public function setRowList($list)
     {
-    	
     	//vde($this->param);
-    	
-    	$this->assign(['list'=>$list]);
+    	//$this->assign(['list'=>$list]);
+    	$this->_view_vars['assign_data']['list'] = $list;
     	return $this;
     }
     
@@ -351,7 +355,7 @@ class TBuilder	// extends CommonBase
     // +----------------------------------------------------------------------
     // | 赋值、生成页面
     // +----------------------------------------------------------------------
-    
+    /*
     public function fetch($template = '', $vars = [], $replace = [], $config = [])
     {
     	// 包含布局地址
@@ -367,6 +371,8 @@ class TBuilder	// extends CommonBase
     	
     	return parent::fetch($template, $vars, $replace, $config);
     }
+    */
+    
     
     /**
      * 对所有变量进行格式化赋值转换

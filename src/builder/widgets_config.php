@@ -34,7 +34,6 @@ return [
 	'echarts'	=> [
 		'js'	=> [
 			'__VENDOR__/plugins/echarts/echarts.min.js',
-			//'__VENDOR__/plugins/echarts/theme/infographic-my.js',	//walden
 			'__VENDOR__/plugins/echarts/theme/infographic-my.js',
 			'__VENDOR__/plugins/echarts/echarts.helper.js',
 		],
@@ -216,24 +215,24 @@ return [
 			'__VENDOR__/editors/kindeditor/4.1.7/themes/default/default.css',
 		],
 		'js'	=> [
-			'/public/static/vendor/editors/kindeditor/4.1.7/kindeditor-min.js',
+			'__VENDOR__/editors/kindeditor/4.1.7/kindeditor-min.js',
 			'__VENDOR__/editors/kindeditor/4.1.7/lang/zh_CN.js',
 		],
 	],
 	'editormd'	=> [
 		'css'	=> [
-			'__VENDOR__/plugins/editormd/css/editormd.css',
+			'__VENDOR__/editors/editormd/css/editormd.css',
 			//'__VENDOR__/plugins/editormd/css/editormd.preview.css',
 		],
 		'js'	=> [
-			'__VENDOR__/plugins/editormd/lib/marked.min.js',
-			'__VENDOR__/plugins/editormd/lib/prettify.min.js',
-			'__VENDOR__/plugins/editormd/lib/raphael.min.js',
-			'__VENDOR__/plugins/editormd/lib/underscore.min.js',
-			'__VENDOR__/plugins/editormd/lib/sequence-diagram.min.js',
-			'__VENDOR__/plugins/editormd/lib/flowchart.min.js',
-			'__VENDOR__/plugins/editormd/lib/jquery.flowchart.min.js',
-			'__VENDOR__/plugins/editormd/editormd.min.js',
+			'__VENDOR__/editors/editormd/lib/marked.min.js',
+			'__VENDOR__/editors/editormd/lib/prettify.min.js',
+			'__VENDOR__/editors/editormd/lib/raphael.min.js',
+			'__VENDOR__/editors/editormd/lib/underscore.min.js',
+			'__VENDOR__/editors/editormd/lib/sequence-diagram.min.js',
+			'__VENDOR__/editors/editormd/lib/flowchart.min.js',
+			'__VENDOR__/editors/editormd/lib/jquery.flowchart.min.js',
+			'__VENDOR__/editors/editormd/editormd.min.js',
 		],
 	],
 	'summernote'	=> [

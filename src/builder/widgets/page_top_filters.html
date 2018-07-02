@@ -9,7 +9,7 @@
 					<label><input type="search" class="form-control input-sm" name="{$vo.field}" value="{:I($vo['field'])}" placeholder="{$vo.name_desc}" aria-controls="datatable3"></label>
 			    {/case}
 			    {case value="select"}
-					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form/select.html" /}
+					{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form/select.html" /}
 			    {/case}
 				{default /}
 					<label>系统暂不支持{$vo.type}类型组件</label>

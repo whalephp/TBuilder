@@ -1,4 +1,4 @@
-<div class="upload_file_btn_box" file_type='file' {$w.item_attr_str} file_ext="{$w.ext}" id_name="{$w.id_str}" id="{$w.id_str}_box">
+<div class="upload_file_btn_box" file_type='file' {$w.item_attr_str|raw} file_ext="{$w.ext}" id_name="{$w.id_str}" id="{$w.id_str}_box">
 	<div class="image_box" enabled_edit="{$w.enabled_edit}">
 		{:get_file_list_html( $w['value'] )}
 		

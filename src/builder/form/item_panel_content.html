@@ -20,19 +20,19 @@
 		    			<div id="widget-{$w.id_str}" class="section row mb10 widget-box widget-type-{$w.type} {$w.box_class} ">
 		    				{if condition="$w['full_show']"}
 	                        	<div class="col-sm-12 col-xs-12">
-			    					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+			    					{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_type_entry.html" /}
 				    			</div>
 			    			{else}
 				    			<label for="{$w.id_str}" class="field-label col-sm-3 col-xs-3 text-right">
-	                        		{notempty name="w.desc"}<i class="fa fa-question-circle filed-hint"  data-toggle="tooltip" data-placement="top" title="{$w.desc}"></i>{/notempty} {include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/item/form_label_title.html" /}
+	                        		{notempty name="w.desc"}<i class="fa fa-question-circle filed-hint"  data-toggle="tooltip" data-placement="top" title="{$w.desc}"></i>{/notempty} {include file="../vendor/whalephp/tbuilder/src/builder/widgets/item/form_label_title.html" /}
 	                        	</label>
 	                        	<div class="col-sm-9 col-xs-9 text-left">
-			    					{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_type_entry.html" /}
+			    					{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_type_entry.html" /}
 				    			</div>
 			    			{/if}
 	                    </div>
 	                    {else}
-	                    	{include file="../vendor/whalephp/phpexcel-helper/src/builder/widgets/form_expand_type_entry.html" /}
+	                    	{include file="../vendor/whalephp/tbuilder/src/builder/widgets/form_expand_type_entry.html" /}
 	                    {/eq}
 		        	{/volist}
                 </div>

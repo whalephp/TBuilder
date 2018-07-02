@@ -25,8 +25,8 @@
             "APP"    	: "__APP__", //当前项目地址
             "PUBLIC" 	: "__PUBLIC__", //项目公共目录地址
             "DEEP"   	: "{:C('URL_PATHINFO_DEPR')}", //PATHINFO分割符
-            "MODEL"  	: ["{:C('URL_MODEL')}", "{:C('URL_CASE_INSENSITIVE')}", "{:C('URL_HTML_SUFFIX')}"],
-            "VAR"    	: ["{:MODULE_NAME}", "{:CONTROLLER_NAME}", "{:ACTION_NAME}"],
+            "MODEL"  	: ["{:request()->module()}", "{:request()->controller()}", "{:C('URL_HTML_SUFFIX')}"],
+            "VAR"    	: ["{:request()->module()}", "{:request()->controller()}", "{:request()->action()}"],
             "modal_show"		: "{$modal_show}",
             "main_title"		: "{$_view_vars['main_title']|default=''}",
             "modal_jump_type"	: "{$modal_jump_type}",
